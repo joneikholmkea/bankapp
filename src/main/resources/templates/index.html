@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Maxx Bank</title>
+
+    <script
+            src="http://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="/js/main.js"></script>
+    <script type="text/javascript">
+        // alert("javascript kører");
+        // if (typeof jQuery == 'undefined') {
+        //     alert("har ikke jQuery");
+        // } else {
+        //     alert("Har jQuery");
+        // }
+        $(document).ready(function () {
+            $("#searchform").submit(function (event) {
+               event.preventDefault(); // stopper formen
+                ajax_submit();
+            });
+
+        });
+
+        function ajax_submit() {
+            var search = {}; // dictionary
+            search["username"] = $("#username").val();
+            $.ajax({
+                type:"POST",
+                contentType:"application/json",
+                url:"api/search",
+                dataType:'json',
+                data:JSON.stringify(search),
+                success: function (data) {
+                    console.log(data);
+                   $.each(data.result,function (index, value) {
+                       $("#responsetext").append("<form><input type='text' value='"+value.name+"'>"
+                           +"<input type='submit'></form>");
+                   })
+                },
+                error: function (data) {
+                    console.log(data);
+                    $("#responsetext").html("Fejl i request: " + " code: " + data.status + " "
+                        + data.responseJSON.msg);
+                }
+
+            });
+
+        }
+
+
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h3>Velkommen til Maxx Bank Mandag</h3>
+
+<form id="searchform">
+    <input type="text" id="username" >
+    <input type="submit">
+</form>
+<div id="responsetext">
+    Her kommer svar...
+
+</div>
+
+
+
+
+
+<h2>Login</h2>
+<form id="form1" method="post" action="/login">
+    <input type="text" name="username" placeholder="Brugernavn" >
+    <input type="text" name="password" placeholder="Password" >
+    <input type="submit" value="Login">
+</form>
+
+
+</body>
+</html>
