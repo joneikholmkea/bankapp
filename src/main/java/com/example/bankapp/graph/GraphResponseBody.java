@@ -6,6 +6,7 @@ public class GraphResponseBody {
     private String msg;
     private List<Vertex> result;
     private List<Edge> edges;
+    private List<Edge> shortestPath;
 
     public List<Edge> getEdges() {
         return edges;

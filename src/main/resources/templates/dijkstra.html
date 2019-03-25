@@ -19,7 +19,7 @@
                         var c = document.getElementById("myCanvas");
                         var ctx = c.getContext("2d");
                         ctx.beginPath();
-                        $.each(data.result, function(index, value){
+                        $.each(data.vertices, function(index, value){
                             ctx.moveTo(value.x, value.y);
                             ctx.arc(value.x,value.y,7,0,2*Math.PI);
                             ctx.strokeText(value.name, value.x, value.y + 15);

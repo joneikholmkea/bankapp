@@ -50,12 +50,12 @@ private void initGraph(){
     edges.add(new Edge(vertices.get(1), vertices.get(5), 8));
 
     // Create Graph
-//    Graph<Vertex> graph = new Graph<>();
-//    for (Edge<Vertex> edge :edges) { // add all edges, and hence create the connections
-//        graph.addEdge(edge);
-//    }
-//    Dijkstra dijkstra = new Dijkstra();
-//    dijkstra.runDijkstra(vertices.get(5), vertices.get(2), graph);  // find vej fra Herstedvester til Vanløse
+    Graph<Vertex> graph = new Graph<>();
+    for (Edge<Vertex> edge :edges) { // add all edges, and hence create the connections
+        graph.addEdge(edge);
+    }
+    Dijkstra dijkstra = new Dijkstra();
+    dijkstra.runDijkstra(vertices.get(5), vertices.get(3), graph);  // find vej fra Herstedvester til Vanløse
 
 }
 }
