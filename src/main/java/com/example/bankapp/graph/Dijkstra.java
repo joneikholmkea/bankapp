@@ -6,7 +6,7 @@ public class Dijkstra {
 
     private PriorityQueue<Vertex> queue = new PriorityQueue<>();
     private Map<Vertex,Vertex> backTrack = new HashMap<>();
-    public void runDijkstra(Vertex v1, Vertex v2, Graph<Vertex> graph){
+    public List<Edge> runDijkstra(Vertex v1, Vertex v2, Graph<Vertex> graph){
 
         Set<Vertex> markSet = new HashSet<>();
         queue.add(v1);
@@ -28,13 +28,19 @@ public class Dijkstra {
         }
 
         // Udskriv kortest vej:
-        Vertex v = v2;  // start med destinationen
-        String path = v.name + " ";
-        while (v != v1){
-            path += backTrack.get(v).name + "\n";
-            v = backTrack.get(v);
+        List<Edge> shortestPath = new ArrayList<>();
+        Vertex vrtx=v2;
+        String path=v2.toString()+ "\n";
+        while(vrtx!=v1){
+            Edge edge = new Edge<>();
+            edge.setV2(vrtx);
+            path +=backTrack.get(vrtx).toString()+ "\n";
+            vrtx=backTrack.get(vrtx);
+            edge.setV1(vrtx);
+            shortestPath.add(edge);
         }
         System.out.println(path);
+        return shortestPath;
 
     }
 

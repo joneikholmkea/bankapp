@@ -4,9 +4,25 @@ import java.util.List;
 
 public class GraphResponseBody {
     private String msg;
-    private List<Vertex> result;
+    private List<Vertex> vertices;
     private List<Edge> edges;
     private List<Edge> shortestPath;
+
+    public List<Vertex> getResult() {
+        return vertices;
+    }
+
+    public void setResult(List<Vertex> result) {
+        this.vertices = result;
+    }
+
+    public List<Edge> getShortestPath() {
+        return shortestPath;
+    }
+
+    public void setShortestPath(List<Edge> shortestPath) {
+        this.shortestPath = shortestPath;
+    }
 
     public List<Edge> getEdges() {
         return edges;
@@ -25,10 +41,10 @@ public class GraphResponseBody {
     }
 
     public List<Vertex> getVertices() {
-        return result;
+        return vertices;
     }
 
     public void setVertices(List<Vertex> result) {
-        this.result = result;
+        this.vertices = result;
     }
 }

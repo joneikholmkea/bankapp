@@ -9,6 +9,7 @@ public class GraphService {
 
 List<Vertex> vertices;
 List<Edge> edges;
+List<Edge> shortestPath;
 
 public GraphService(){
     initGraph();
@@ -55,7 +56,7 @@ private void initGraph(){
         graph.addEdge(edge);
     }
     Dijkstra dijkstra = new Dijkstra();
-    dijkstra.runDijkstra(vertices.get(5), vertices.get(3), graph);  // find vej fra Herstedvester til Vanløse
+    shortestPath = dijkstra.runDijkstra(vertices.get(5), vertices.get(3), graph);  // find vej fra Herstedvester til Vanløse
 
 }
 }

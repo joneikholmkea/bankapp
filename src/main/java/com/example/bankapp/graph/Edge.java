@@ -12,6 +12,9 @@ public class Edge<T> {
         this.weight = weight;
     }
 
+    public Edge() {
+    }
+
     public T getV1() {
         return v1;
     }

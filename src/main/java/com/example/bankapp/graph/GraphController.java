@@ -17,6 +17,7 @@ public class GraphController {
         GraphResponseBody graphResponseBody = new GraphResponseBody();
         graphResponseBody.setVertices(graphService.vertices);
         graphResponseBody.setEdges(graphService.edges);
+        graphResponseBody.setShortestPath(graphService.shortestPath);
         graphResponseBody.setMsg("success");
         return ResponseEntity.ok(graphResponseBody);
     }
