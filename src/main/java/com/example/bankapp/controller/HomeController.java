@@ -21,6 +21,12 @@ public class HomeController {
         return "index";
     }
 
+
+    @GetMapping({ "/basic_ajax.html"})
+    public String basic_ajax(){
+        return "basic_ajax";
+    }
+
     @GetMapping("/bank.html")
     public String bank(HttpSession session, Model model){
         Object status = session.getAttribute("cowstatus");

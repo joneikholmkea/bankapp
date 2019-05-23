@@ -43,7 +43,7 @@ private void initGraph(){
     edges.add(new Edge(vertices.get(0), vertices.get(1), 12));
     edges.add(new Edge(vertices.get(0), vertices.get(2), 8));
     edges.add(new Edge(vertices.get(2), vertices.get(7), 11));
-    edges.add(new Edge(vertices.get(2), vertices.get(3), 9));
+    edges.add(new Edge(vertices.get(2), vertices.get(3), 10));
     edges.add(new Edge(vertices.get(3), vertices.get(4), 6));
     edges.add(new Edge(vertices.get(3), vertices.get(7), 10));
     edges.add(new Edge(vertices.get(4), vertices.get(7), 6));
@@ -56,7 +56,7 @@ private void initGraph(){
         graph.addEdge(edge);
     }
     Dijkstra dijkstra = new Dijkstra();
-    shortestPath = dijkstra.runDijkstra(vertices.get(5), vertices.get(3), graph);  // find vej fra Herstedvester til Vanløse
+    shortestPath = dijkstra.runDijkstra(vertices.get(5), vertices.get(2), graph);  // find vej fra Herstedvester til Vanløse
 
 }
 }
